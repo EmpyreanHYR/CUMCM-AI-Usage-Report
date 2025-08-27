@@ -23,10 +23,38 @@
 \end{enumerate}
 \end{GeminiBlock}
 
+% 2b. 用户追问 Block（再次交互，展示追问以获取形式化结果与示例）
+\begin{block}[colback=orange!10, colframe=orange!60, title={\textcolor{black}{用户追问}}]
+如果把两个虚数具体写成代数形式 $(a+bi)$ 与 $(c+di)$，其和应如何规范表示？能否再给一个带具体数字的示例来说明？
+\vspace{0.5em}
+\begin{flushright}
+    \scriptsize
+    \begin{flushleft}
+        	extbf{追问目的：} 进一步明确复数加法的通式表达与数值示例，便于在论文中直接引用；仍处于“算法设计与实现”环节。
+    \end{flushleft}
+\end{flushright}
+\end{block}
+
+% 2c. AI 对追问的回答
+\begin{GeminiBlock}
+复数（虚数是其特殊情形）加法的通式：
+\[
+(a+bi) + (c+di) = (a+c) + (b+d)i.
+\]
+其中实部相加，虚部系数相加，保持 $i$ 不变。
+
+数值示例：
+\[
+(2+3i) + (1-5i) = (2+1) + (3-5)i = 3 - 2i.
+\]
+说明：该运算不需要额外条件，时间复杂度 $O(1)$；在实现层面可分别存储实部、虚部再组合输出。
+\end{GeminiBlock}
+
 % 3. 采纳和人工修改情况
 \begin{block}[colback=green!10, colframe=green!50, title={\textcolor{black}{采纳和人工修改情况}}]
 \begin{itemize}
-    \item \textbf{采纳情况：} AI 工具提供的解法被完全采纳。
-    \item \textbf{人工修改情况：} 无需人工修改，AI 工具的解法已满足需求。
+    \item \textbf{交互轮次：} 2（初次提问 + 1 次追问）。
+    \item \textbf{采纳情况：} 初次回答与追问回答均被完全采纳。
+    \item \textbf{人工修改情况：} 无需人工修改，AI 给出的通式与示例已直接满足报告中“算法说明”小节的引用需求。
 \end{itemize}
 \end{block}

@@ -1,0 +1,78 @@
+% 文档类：article（基础文章类），12pt（字体大小），a4paper（纸张尺寸）
+\documentclass[12pt,a4paper]{article}
+
+% ===================== 基础包引入 =====================
+% 1. 中文支持（需 XeLaTeX 编译器）
+\usepackage{xeCJK}
+% 设置中文字体（根据本地安装字体调整，常用：SimSun/宋体、Microsoft YaHei/微软雅黑）
+\setCJKmainfont{SimSun}  % 正文中文主字体
+\setCJKsansfont{Microsoft YaHei}  % 中文无衬线字体（用于标题/强调）
+
+% 2. 页面布局（边距、页眉页脚）
+\usepackage{geometry}
+\geometry{left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}  % 统一边距
+
+% 3. 图片插入（支持多种格式：png/jpg/pdf）
+\usepackage{graphicx}
+% 设置图片默认存放路径（可选，便于管理图片文件）
+\graphicspath{{./images/}{./icons/}}  % 图片放在 images 和 icons 文件夹下
+
+% 4. 表格支持（扩展表格功能，如跨列/跨行）
+\usepackage{multirow}  % 跨行单元格
+\usepackage{makecell}  % 单元格内换行
+\usepackage{booktabs}  % 美观的表格线（替代默认三线表）
+
+% 5. 块环境（tcolorbox：灵活的彩色/带框块）
+\usepackage{tcolorbox}
+% 自定义 block 环境（可按需调整颜色/字体）
+\newtcolorbox{block}[1][]{  % 带可选参数的 block 环境
+    colback=blue!5,    % 背景色（浅蓝色浅底）
+    colframe=blue!50,  % 边框色（蓝色）
+    coltext=black,     % 文字色
+    fontupper=\small,  % 文字大小
+    boxrule=0.8pt,     % 边框粗细
+    sharp corners,     % 直角边框（可选：rounded corners 圆角）
+    #1  % 接收可选参数（如自定义颜色）
+}
+
+% 6. 定理环境（amsthm：数学定理/定义/证明标准包）
+\usepackage{amsthm}
+% 自定义定理系列环境（编号共享，按章节递增）
+\theoremstyle{plain}  % 标准定理样式（斜体）
+\newtheorem{theorem}{定理}[section]  % 定理（按章节编号，如 1.1）
+\newtheorem{lemma}[theorem]{引理}     % 引理（与定理共享编号）
+
+\theoremstyle{definition}  % 定义样式（正体）
+\newtheorem{definition}[theorem]{定义}  % 定义（共享编号）
+
+\theoremstyle{remark}  % 备注样式（小字体）
+\newtheorem{remark}[theorem]{备注}     % 备注（共享编号）
+
+% 7. 数学公式（amsmath/amssymb：完整数学符号与公式支持）
+\usepackage{amsmath}    % 基础数学公式（如矩阵、分式、根号）
+\usepackage{amssymb}    % 扩展数学符号（如集合符号 ∀、∃、∈）
+
+% 8. 其他辅助（目录、段落间距）
+\usepackage{tocloft}    % 优化目录样式
+\setlength{\parskip}{0.5em}  % 段落之间的间距（避免拥挤）
+
+
+% ===================== 文档正文 =====================
+\begin{document}
+
+% 1. 标题与作者（中文标题需用 \titleCJK 包裹）
+\title{\CJKfamily{Microsoft YaHei}% 标题用微软雅黑
+    AI工具使用详情
+}
+\date{}  % 不显示日期
+\maketitle
+
+% -------------------- 第 1 章：参赛作品使用的AI工具列表 --------------------
+\input{texfile/模型定义.tex}
+\newpage
+
+% -------------------- 第 2 章：AI 工具使用详情说明 --------------------
+\section{AI 工具使用详情说明}
+\input{texfile/使用说明1.tex}
+\input{texfile/使用说明2.tex}
+\end{document}

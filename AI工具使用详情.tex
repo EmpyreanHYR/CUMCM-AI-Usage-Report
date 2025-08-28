@@ -24,15 +24,17 @@
 
 % 5. 块环境（tcolorbox：灵活的彩色/带框块）
 \usepackage{tcolorbox}
-% 自定义 block 环境（可按需调整颜色/字体）
-\newtcolorbox{block}[1][]{  % 带可选参数的 block 环境
+\tcbuselibrary{breakable}
+\tcbuselibrary{skins} % 引入 skins 库
+% 设置 tcolorbox 全局默认样式
+\tcbset{
+    breakable,         % 允许分页
     colback=blue!5,    % 背景色（浅蓝色浅底）
     colframe=blue!50,  % 边框色（蓝色）
     coltext=black,     % 文字色
     fontupper=\small,  % 文字大小
     boxrule=0.8pt,     % 边框粗细
     sharp corners,     % 直角边框（可选：rounded corners 圆角）
-    #1  % 接收可选参数（如自定义颜色）
 }
 
 % 6. 定理环境（amsthm：数学定理/定义/证明标准包）

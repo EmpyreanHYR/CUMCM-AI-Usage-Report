@@ -17,11 +17,39 @@
 ## 主要内容结构
 
 - `AI工具使用详情.tex`：主文档，负责整合所有模块并定义全局样式。
+- `md_to_latex.py`：一个Python GUI工具，用于将Markdown格式的文本转换为LaTeX代码。
 - `texfile/模型定义.tex`：参赛作品所用AI工具列表及对应的 `tcolorbox` 环境定义。
 - `texfile/使用说明1.tex`：AI工具使用示例（简单问答）。
 - `texfile/使用说明2.tex`：AI工具使用示例（包含追问的多轮交互）。
 - `texfile/使用说明3.tex`：AI工具使用示例（结构化的长篇幅问答）。
 - `icons/`：存放各AI工具的图标文件。
+
+## Markdown to LaTeX 转换工具
+
+为了方便将从AI工具复制的 Markdown 格式内容转换为 LaTeX，项目提供了一个基于 Python 的 GUI 工具 `md_to_latex.py`。
+
+### 功能
+
+- **图形化界面**：提供用户友好的窗口，包含 Markdown 输入和 LaTeX 输出区域。
+- **文件导入**：支持打开 `.md` 文件并将其内容加载到输入区。
+- **实时转换**：将输入的 Markdown 文本转换为 LaTeX 代码并实时显示。
+- **代码导出**：可以将转换后的 LaTeX 代码保存为 `.tex` 文件。
+
+### 使用方法
+
+1.  **安装依赖**:
+    -   **Pandoc**: 转换的核心工具。
+        -   macOS (使用 Homebrew): `brew install pandoc`
+        -   其他系统请参考 [pandoc 官网](https://pandoc.org/installing.html)。
+    -   **pypandoc**: Python 对 pandoc 的封装。
+        ```bash
+        pip install pypandoc
+        ```
+
+2.  **运行工具**:
+    ```bash
+    python md_to_latex.py
+    ```
 
 ## 参赛作品使用的AI工具列表
 
